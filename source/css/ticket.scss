@@ -1,5 +1,5 @@
 // out: ./styl.css, compress: true, sourceMap: true
-@import "normalize", "rem", "color", "mixin", "default";
+@import "normalize";
 
 /* basic */
 $min-width: 320px;
@@ -20,9 +20,8 @@ html {
 html,
 body {
 
-
     font-family: "apple sd gothic neo", sans-serif;
-    color:$text-color;
+    color:#222;
 
     @media (max-width: $screen-size-pc - 1) {
         &.lock {
@@ -33,20 +32,6 @@ body {
 }
 
 body {
-
-
-
-    .container {
-        @include container(100%);
-        text-align:left;
-        vertical-align:top;
-        padding:0 15px;
-
-        @media (min-width: $screen-size-pc) {
-            @include container($screen-size-pc);
-            padding: 0;
-        }
-    }
 
 
 
@@ -95,13 +80,22 @@ body {
             margin:40px auto 30px;
             width:202px;
             height:auto;
-            @include drop-shadow($x:0,$y: 16px, $blur: 21px, $spread: 0, $alpha: 0.6);
+            -webkit-box-shadow: 0 16px 21px 0 rgb(0 0 0 / 60%);
+            box-shadow: 0 16px 21px 0 rgb(0 0 0 / 60%);
         }
 
 
         h2 {
             font-size:26px;
             font-weight:600;
+
+            span {
+                display:block;
+                margin:6px;
+                font-weight:500;
+                font-size:18px;
+                color:#FFC954;
+            }
 
             small {
                 display:block;
@@ -139,15 +133,84 @@ body {
             color:#FFC954;
             margin:10px 0 20px;
         }
-        p.barcode {
-            background:#fff;
-            margin:0;
-            padding:20px;
 
-            img {
-                width:100%;
+        div#bcTarget {
+
+            &>span {
+                color:#FFC954;
+                font-weight:800;
+
+            }
+
+
+            a {
+                display:block;
+                width:210px;
+                margin:10px auto 20px;
+                color:#222;
+                text-decoration:none;
+                border-radius:5px;
+                background:url(../images/kakaotalk_sharing_btn_small.png) no-repeat #ffeb00 left 10px center / auto 22px;
+                padding:6px 10px;
+            }
+
+            div.barcode {
+                width:100% !important;
+                background:#fff;
+                padding:30px 0 !important;
+                margin:0 0 30px;
+                overflow:hidden !important;
+
+                div {
+                    display:inline-block;
+                    width:1%;
+                    height:100px !important;
+                    float:none !important;
+
+                    &:last-child {
+                        width:100%;
+                        height:auto !important;
+                    }
+                }
+
+                &.message {
+                    width:auto !important;
+                    padding:10px 20px !important;
+                    background:none;
+                    word-break:keep-all;
+                }
+                
+                img {
+                    width:100%;
+                }
+            }
+
+            div.null {
+                width:100% !important;
+                background:#fff;
+                padding:40px 0 !important;
+                margin:0 0 30px;
+                overflow:hidden !important;
+                color:#555;
+
+                span {
+                    display:block;
+                    font-weight:500;
+                    font-size:16px;
+                }
+
             }
         }
+
+        //p.barcode {
+        //    background:#fff;
+        //    margin:0;
+        //    padding:20px;
+        //
+        //    img {
+        //        width:100%;
+        //    }
+        //}
 
         div.information {
             background:#222;
@@ -162,12 +225,6 @@ body {
         }
 
     }
-
-
-
-
-
-
 
 
 
